@@ -36,7 +36,7 @@ public class StrategyApiTest {
     @Test
     public void test_strategyService() {
         List<StrategyEntity> strategyEntities = strategyService.queryStrategyList();
-        log.info("查询结果： {}", strategyEntities);
+        log.info("查询结果： {}", JSON.toJSON(strategyEntities));
     }
 
     @Test

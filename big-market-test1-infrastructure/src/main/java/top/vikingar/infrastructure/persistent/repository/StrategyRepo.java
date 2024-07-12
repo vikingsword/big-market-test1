@@ -7,8 +7,8 @@ import top.vikingar.infrastructure.persistent.dao.IStrategyDao;
 import top.vikingar.infrastructure.persistent.po.Strategy;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author vikingar
@@ -23,18 +23,15 @@ public class StrategyRepo implements IStrategyRepo {
 
     @Override
     public List<StrategyEntity> queryStrategyList() {
-        List<StrategyEntity> strategyEntityArrayList = new ArrayList<>();
         List<Strategy> strategyList = strategyDao.queryStrategyList();
-        for (Strategy strategy : strategyList) {
-            StrategyEntity strategyEntity = StrategyEntity.builder()
+        return strategyList.stream().map(
+                strategy -> StrategyEntity.builder()
                         .id(strategy.getId())
-                        .strategyId(strategy.getStrategyId())
+                        .strategyId(strategy.getId())
                         .strategyDesc(strategy.getStrategyDesc())
                         .ruleModels(strategy.getRuleModels())
                         .createTime(strategy.getCreateTime())
-                        .build();
-            strategyEntityArrayList.add(strategyEntity);
-        }
-        return strategyEntityArrayList;
+                        .build()
+        ).collect(Collectors.toList());
     }
 }
