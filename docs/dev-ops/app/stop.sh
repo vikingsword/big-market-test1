@@ -1,1 +1,1 @@
-docker stop big-market-test1
+docker stop big-market
