@@ -1,1 +1,0 @@
-package top.vikingar.infrastructure.gateway.api;
