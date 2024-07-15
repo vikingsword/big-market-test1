@@ -51,15 +51,15 @@ public class StrategyRepo implements IStrategyRepo {
     @Override
     public List<StrategyAwardEntity> getStrategyAwardEntity(Long strategyId) {
 
-        // 从redis中查找
-        String cacheKey = Constants.RedisKey.STRATEGY_AWARD_KEY + strategyId;
-        List<StrategyAwardEntity> strategyAwardEntityList = redisService.getValue(cacheKey);
-
-        if (null != strategyAwardEntityList && !strategyAwardEntityList.isEmpty()) return strategyAwardEntityList;
+//        // 从redis中查找
+//        String cacheKey = Constants.RedisKey.STRATEGY_AWARD_KEY + strategyId;
+//        List<StrategyAwardEntity> strategyAwardEntityList = redisService.getValue(cacheKey);
+//
+//        if (null != strategyAwardEntityList && !strategyAwardEntityList.isEmpty()) return strategyAwardEntityList;
 
         // 缓存中没有则从数据库中查找
         List<StrategyAward> strategyAwardEntities = strategyAwardDao.queryStrategyAward(strategyId);
-        strategyAwardEntityList = strategyAwardEntities.stream().map(
+        List<StrategyAwardEntity> strategyAwardEntityList = strategyAwardEntities.stream().map(
                 strategyAward -> StrategyAwardEntity.builder()
                         .awardId(strategyAward.getAwardId())
                         .awardCount(strategyAward.getAwardCount())

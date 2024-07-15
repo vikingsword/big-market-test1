@@ -9,7 +9,7 @@ import java.util.List;
  * @time 2024/7/12 11:53
  * @description
  */
-public interface IStrategyService {
+public interface IStrategyArmory {
 
     List<StrategyEntity> queryStrategyList();
 

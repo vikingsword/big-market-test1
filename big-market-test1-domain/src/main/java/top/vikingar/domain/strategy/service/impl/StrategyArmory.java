@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service;
 import top.vikingar.domain.strategy.model.StrategyAwardEntity;
 import top.vikingar.domain.strategy.model.StrategyEntity;
 import top.vikingar.domain.strategy.repo.IStrategyRepo;
-import top.vikingar.domain.strategy.service.IStrategyService;
+import top.vikingar.domain.strategy.service.IStrategyArmory;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -15,7 +15,7 @@ import java.util.List;
  * @description
  */
 @Service
-public class StrategyServiceImpl implements IStrategyService {
+public class StrategyArmory implements IStrategyArmory {
 
     @Resource
     private IStrategyRepo strategyRepo;
