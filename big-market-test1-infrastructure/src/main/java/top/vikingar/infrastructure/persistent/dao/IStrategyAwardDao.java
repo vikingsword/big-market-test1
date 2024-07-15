@@ -1,23 +1,18 @@
 package top.vikingar.infrastructure.persistent.dao;
 
 import org.apache.ibatis.annotations.Mapper;
-import top.vikingar.domain.strategy.model.StrategyAwardEntity;
-import top.vikingar.infrastructure.persistent.po.Strategy;
 import top.vikingar.infrastructure.persistent.po.StrategyAward;
 
 import java.util.List;
 
 /**
  * @author vikingar
- * @time 2024/7/12 11:18
+ * @time 2024/7/15 10:57
  * @description
  */
 @Mapper
-public interface IStrategyDao {
+public interface IStrategyAwardDao {
 
-    List<Strategy> queryStrategyList();
-
-    Strategy queryTest();
 
     List<StrategyAward> queryStrategyAward(Long strategyId);
 

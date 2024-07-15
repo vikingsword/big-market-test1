@@ -25,4 +25,11 @@
         LIMIT 1
     </select>
 
+    <select id="queryStrategyAward" resultType="top.vikingar.infrastructure.persistent.po.StrategyAward" resultMap="dataMap">
+        SELECT *
+        FROM `strategy`
+        WHERE `strategy_id` = #{strategyId}
+    </select>
+
+
 </mapper>

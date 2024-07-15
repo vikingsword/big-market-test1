@@ -18,6 +18,7 @@ spring:
     username: root
     password: 123456
     url: jdbc:mysql://127.0.0.1:13306/big_market?useUnicode=true&characterEncoding=utf8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&serverTimezone=UTC&useSSL=true
+    # cj: 8.x mysql  ;   无 cj: 5.x mysql
     driver-class-name: com.mysql.cj.jdbc.Driver
   hikari:
     pool-name: Retail_HikariCP
@@ -28,12 +29,27 @@ spring:
     max-lifetime: 1800000 #此属性控制池中连接的最长生命周期，值0表示无限生命周期，默认1800000即30分钟
     connection-timeout: 30000 #数据库连接超时时间,默认30秒，即30000
     connection-test-query: SELECT 1
+    # spring 默认的连接池, 可以不用配置
   type: com.zaxxer.hikari.HikariDataSource
 
-# MyBatis 配置【如需使用记得打开】
 mybatis:
   mapper-locations: classpath:/mybatis/mapper/*.xml
   config-location:  classpath:/mybatis/config/mybatis-config.xml
+
+# Redis
+redis:
+  sdk:
+    config:
+      host: 127.0.0.1
+      port: 16379
+      pool-size: 10
+      min-idle-size: 5
+      idle-timeout: 30000
+      connect-timeout: 5000
+      retry-attempts: 3
+      retry-interval: 1000
+      ping-interval: 60000
+      keep-alive: true
 
 # 日志
 logging:

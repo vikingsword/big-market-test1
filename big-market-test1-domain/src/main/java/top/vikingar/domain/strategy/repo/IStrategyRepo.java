@@ -1,5 +1,6 @@
 package top.vikingar.domain.strategy.repo;
 
+import top.vikingar.domain.strategy.model.StrategyAwardEntity;
 import top.vikingar.domain.strategy.model.StrategyEntity;
 
 import java.util.List;
@@ -12,6 +13,8 @@ import java.util.List;
 public interface IStrategyRepo {
 
     List<StrategyEntity> queryStrategyList();
+
+    List<StrategyAwardEntity> getStrategyAwardEntity(Long strategyId);
 
 
 }

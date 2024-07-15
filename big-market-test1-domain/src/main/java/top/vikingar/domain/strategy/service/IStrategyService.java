@@ -12,4 +12,6 @@ import java.util.List;
 public interface IStrategyService {
 
     List<StrategyEntity> queryStrategyList();
+
+    boolean assembleLotteryStrategy(Long strategyId);
 }
